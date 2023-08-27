@@ -29,10 +29,14 @@ export const NavbarLayout = () => {
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Button variant="danger">PC BUILDER</Button>
+                        <Link href='/pcbuilder'>
+                            <Button variant="danger">
+                                PC BUILDER
+                            </Button>
+                        </Link>
                     </Nav>
                 </Container>
-            </Navbar>
+            </Navbar >
         </>
     )
 }

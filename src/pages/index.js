@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { FeaturedProduct } from './product'
+import CategoryPage from './category'
 // import { bannerImg } from '@/public/images/home-banner-image';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,10 +27,14 @@ export default function Home() {
         />
       </Head>
        */}
+      <main className={`pb-5 ${styles['main-section']}`}>
+        <div className={`container-fluid ${styles['homeBanner']}`}>
+        </div>
+        <FeaturedProduct />
+        <CategoryPage />
+      </main>
 
-      <div className={`container-fluid ${styles['homeBanner']}`}>
-      </div>
-      <FeaturedProduct/>
     </>
+
   )
 }

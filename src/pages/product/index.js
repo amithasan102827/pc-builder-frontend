@@ -9,12 +9,12 @@ export const FeaturedProduct = () => {
     console.log(data);
     return (
         <div className='container-fluid px-md-5 px-4 my-5'>
-            <h1 className='text-center fw-bold mb-5'>Featured Products</h1>
             <CardGroup className=''>
-                <div className="row">
+                <div className="row bg-white p-4 shadow-sm">
+                <h2 className='text-center fw-bold py-2'>Featured Products</h2>
                     {data?.slice(0, 8).map((product) => (
-                        <Link className='col-md-3 p-0 text-decoration-none '  href={`/product/${product?._id}`}>
-                        <Card className="rounded-0 p-1" key={product.id}>
+                        <Link className='col-md-3 p-0 text-decoration-none '  href={`/product/${product?._id}`} key={product.id}>
+                        <Card className="rounded-0 h-100 p-1">
                             <Card.Img variant="top" src={product.image} />
                             <Card.Body>
                                 <Card.Title className='fs-6'>{product.name}</Card.Title>
