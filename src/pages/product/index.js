@@ -5,7 +5,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
-export const FeaturedProduct = () => {
+const FeaturedProduct = () => {
 
     const { data, error, isLoading } = useGetProductsQuery([]);
 
@@ -45,3 +45,4 @@ export const FeaturedProduct = () => {
         </div>
     )
 }
+export default FeaturedProduct

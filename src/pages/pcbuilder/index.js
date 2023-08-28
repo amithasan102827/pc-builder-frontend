@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { clearCart, removeFromCart } from '@/redux/features/cart/cartSlice';
+import { removeFromCart, resetCart } from '@/redux/features/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,11 +25,14 @@ const PCBuilderPage = () => {
     const Monitor = useCartProductsByCategory('Monitor');
     const PowerSupply = useCartProductsByCategory('Power Supply');
 
-
+    const handleOrder = () => {
+        dispatch(resetCart()); // Dispatch the resetCart action
+        alert('Order Place Successfully')
+    };
 
 
     return (
-        <div className='bg-secondary bg-gradient bg-opacity-25 px-md-5 px-2  py-md-3 py-1'>
+        <div className='bg-secondary bg-gradient bg-opacity-25 px-md-5 px-2  py-md-3 py-1 '>
             <div className='container-fluid px-md-5 px-4 my-5 bg-white py-5'>
                 <h5 className='mb-4'>Total: <span className='fw-bold fs-3'>&#2547; </span>{total}</h5>
 
@@ -314,7 +317,7 @@ const PCBuilderPage = () => {
                 )}
 
 
-                <Button  className='d-block float-end px-4' disabled={products?.length < 6 ? 'true' : ''} variant="success">Order</Button>
+                <Button onClick={()=>(handleOrder())} className='d-block float-end px-4' disabled={products?.length < 6 ? 'true' : ''} variant="success">Order</Button>
 
             </div>
         </div>

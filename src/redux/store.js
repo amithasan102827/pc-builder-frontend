@@ -35,7 +35,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,
-        }),
+        }).concat(api.middleware),
     devTools: true,
 
 
@@ -43,15 +43,3 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-
-// const store = configureStore({
-//     reducer: {
-//         cart: cartReducer,
-//         [api.reducerPath]: api.reducer,
-//     },
-//     middleware: (getDefaultMiddleware) =>
-//         getDefaultMiddleware().concat(api.middleware),
-// });
-
-
-// export default store;
