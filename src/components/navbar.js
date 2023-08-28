@@ -19,15 +19,25 @@ export const NavbarLayout = () => {
                         <Link className='text-decoration-none' href="/">Home</Link>
                         </Nav.Link> */}
                         <NavDropdown className='me-4 fs-6' title="Category" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/CPU'>CPU</Link>
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/Motherboard'>Motherboard</Link>
                             </NavDropdown.Item>
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/Power Supply'>Power Supply</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/Storage'>Storage</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/RAM'>RAM</Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item className=' bg-dark'>
+                                <Link className='text-decoration-none text-white' href='/category/Monitor'>Monitor</Link>
+                            </NavDropdown.Item>
+                            
                         </NavDropdown>
                         <Link href='/pcbuilder'>
                             <Button variant="danger">

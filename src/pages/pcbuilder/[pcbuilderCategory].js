@@ -8,18 +8,18 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { addToCart } from '@/redux/features/cart/cartSlice';
 import Image from 'next/image';
 
-const CategoryDetails = ({ data }) => {
+const PcbuilderCategoryPage = ({ data }) => {
     const router = useRouter()
-    const name = router.query.categoryName;
+    const name = router.query.pcbuilderCategory;
 
-    // const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-    // const handleAddProduct = (product) => {
-    //     dispatch(addToCart(product));
-    //     router.push('/pcbuilder');
-    // };
-    // const { products, total } = useAppSelector((state) => state.cart);
-    // console.log(products);
+    const handleAddProduct = (product) => {
+        dispatch(addToCart(product));
+        router.push('/pcbuilder');
+    };
+    const { products, total } = useAppSelector((state) => state.cart);
+    console.log(products);
 
     return (
         <section className='bg-secondary bg-gradient bg-opacity-25  p-md-3 p-1'>
@@ -49,9 +49,9 @@ const CategoryDetails = ({ data }) => {
                                     </Card.Body>
                                 </Link>
 
-                                {/* <Card.Footer>
+                                <Card.Footer>
                                     <Button onClick={() => handleAddProduct(product)} className=' px-5 d-block mx-auto' variant="primary">Add</Button>
-                                </Card.Footer> */}
+                                </Card.Footer>
                             </Card>
                         ))}
                     </div>
@@ -65,7 +65,7 @@ const CategoryDetails = ({ data }) => {
 
 export async function getServerSideProps(context) {
     const { params } = context;
-    const res = await fetch(`https://pc-builder-5vdz.onrender.com/api/products/category/${params.categoryName}`);
+    const res = await fetch(`https://pc-builder-5vdz.onrender.com/api/products/category/${params.pcbuilderCategory}`);
     const data = await res.json();
 
     return {
@@ -75,4 +75,4 @@ export async function getServerSideProps(context) {
     };
 }
 
-export default CategoryDetails
+export default PcbuilderCategoryPage

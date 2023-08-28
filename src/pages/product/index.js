@@ -1,28 +1,37 @@
 import { useGetProductsQuery } from '@/redux/features/product/productApi';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
 export const FeaturedProduct = () => {
+
     const { data, error, isLoading } = useGetProductsQuery([]);
-    console.log(data);
+
     return (
         <div className='container-fluid px-md-5 px-4 my-5'>
             <CardGroup className=''>
                 <div className="row bg-white p-4 shadow-sm">
                 <h2 className='text-center fw-bold py-2'>Featured Products</h2>
                     {data?.slice(0, 8).map((product) => (
-                        <Link className='col-md-3 p-0 text-decoration-none '  href={`/product/${product?._id}`} key={product.id}>
+                        <Link className='col-md-3 p-0 text-decoration-none '  href={`/product/${product?._id}`} key={product._id}>
                         <Card className="rounded-0 h-100 p-1">
-                            <Card.Img variant="top" src={product.image} />
+                                {/* <Card.Img variant="top" src={product.image} /> */}
+                                <Image
+                                        src={product.image}
+                                        alt="Description of the image"
+                                        width={500}
+                                        height={300}
+                                        layout="responsive"
+                                    />
                             <Card.Body>
                                 <Card.Title className='fs-6'>{product.name}</Card.Title>
                                 <Card.Text>
-                                    <small className='text-muted'>Category: {product.category}</small>
-                                    <p className='m-0'>Price: {product.price}</p>
-                                    <p className='m-0'>Status: {product.status}</p>
-                                    <p className='m-0'>Rating: {product.averageRating}</p>
+                                    <small className='text-muted d-block'>Category: {product.category}</small>
+                                    <small className='text-muted d-block'>Price: {product.price}</small>
+                                    <small className='text-muted d-block'>Status: {product.status}</small>
+                                    <small className='text-muted d-block'>Rating: {product.averageRating}</small>
                                 </Card.Text>
                             </Card.Body>
                             {/* <Card.Footer>
